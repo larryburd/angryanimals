@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds6yvvtplkmur"]
+
+[ext_resource type="Script" path="res://Scenes/Water/water.gd" id="1_53fyd"]
+[ext_resource type="Texture2D" uid="uid://b7ni5s55g6her" path="res://assets/scene/waterTop_high.png" id="1_as6aa"]
+[ext_resource type="AudioStream" uid="uid://be8qdt1alepxg" path="res://assets/audio/splash.ogg" id="3_672ul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkwyd"]
+size = Vector2(1200, 31)
+
+[node name="Water" type="Area2D"]
+script = ExtResource("1_53fyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(583, 34)
+texture = ExtResource("1_as6aa")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 1200, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(584, 29)
+shape = SubResource("RectangleShape2D_bkwyd")
+
+[node name="Splash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_672ul")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
