@@ -39,6 +39,7 @@ func set_release() -> void:
 	freeze = false
 	apply_central_impulse(get_impulse())
 	launch_sound.play()
+	SignalManager.on_attempt_made.emit()
 	
 func set_drag() -> void:
 	_drag_start = get_global_mouse_position()
@@ -133,4 +134,9 @@ func _on_input_event(_viewport, event: InputEvent, _shape_idx):
 
 func _on_sleeping_state_changed():
 	if sleeping:
+		var cb = get_colliding_bodies()
+		
+		if cb.size() > 0:
+			cb[0].die()
+		
 		call_deferred("die")
