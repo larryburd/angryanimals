@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvwwm64mct4uv"]
+
+[ext_resource type="Texture2D" uid="uid://b223o3djxcjyo" path="res://assets/env/MainBG.png" id="1_aog02"]
+[ext_resource type="PackedScene" uid="uid://ddti17y1fjlbu" path="res://Scenes/LevelButton/level_button.tscn" id="2_8l1u7"]
+[ext_resource type="FontFile" uid="uid://dvetwo8ovrqba" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_ldpes"]
+[ext_resource type="AudioStream" uid="uid://c32npnhwolyep" path="res://assets/audio/birdsong.wav" id="4_l6281"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oigda"]
+font = ExtResource("3_ldpes")
+font_size = 96
+font_color = Color(0.235294, 1, 0.996078, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.529412)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aog02")
+
+[node name="HB" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="LevelButton" parent="HB" instance=ExtResource("2_8l1u7")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HB" instance=ExtResource("2_8l1u7")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="HB" instance=ExtResource("2_8l1u7")]
+layout_mode = 2
+level_number = 3
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -328.5
+offset_right = 328.5
+offset_bottom = 121.0
+grow_horizontal = 2
+rotation = 0.0523599
+theme_override_constants/margin_top = 24
+
+[node name="Label" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Angry Animal"
+label_settings = SubResource("LabelSettings_oigda")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l6281")
+autoplay = true
