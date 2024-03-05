@@ -10,6 +10,3 @@ position = Vector2(328, 477)
 
 [node name="Cup2" parent="." index="4" instance=ExtResource("2_8awrt")]
 position = Vector2(445, 342)
-
-[node name="Cup3" parent="." index="5" instance=ExtResource("2_8awrt")]
-position = Vector2(542, 529)
